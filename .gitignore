@@ -1,0 +1,16 @@
+# Large/raw device images should not live in normal Git history
+*.img
+*.bin
+*.raw
+*.img.lz4
+
+# Local firmware/dump work areas
+firmware/
+stock_dump/
+downloads/
+scratch/
+
+# Logs and OS noise
+*.log
+Thumbs.db
+.DS_Store
