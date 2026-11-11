@@ -36,6 +36,21 @@ Good candidates for Git:
 
 Large raw partition images, full `super.img` dumps, and complete firmware archives should stay outside normal Git history.
 
+## Stock dump download
+
+The full stock partition dump is hosted externally because the images are too large for normal Git history.
+
+Dropbox:
+https://www.dropbox.com/scl/fo/lh8fe5bilrdga5pjywkjr/AH6i2hRoSHvg5lB83KG9RWo?rlkey=bzus3p9h66yxeuzz72kag3sll&dl=0
+
+Archive:
+`onn7core_36020962_20260623_stock_dump.7z`
+
+SHA-256:
+`767cd7753cfd8b2a56078aa3f4e29e9d7cb9ffc9f5efb4464e5f3ab3416ae931`
+
+This is a device-derived stock partition dump, not an official factory image or flash-all package. Verify the archive hash before using it.
+
 ## Current status
 
 - Stock partition dump preserved separately
