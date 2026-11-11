@@ -1,0 +1,286 @@
+============================================================
+onn 7 Core (36020962) - Android 16 Magisk Root Package
+============================================================
+
+DEVICE INFORMATION
+
+Device: onn 7 Core
+Model: 36020962
+Codename: onn7core
+Android: 16
+SDK: 36
+Build: BP2A.250605.031.A3
+Incremental: 20260623
+Security Patch: 2026-04-05
+
+Root tested with:
+Magisk 30.7
+
+Root status:
+VERIFIED WORKING
+
+Root was independently verified after a normal reboot with:
+
+adb shell
+su
+id
+
+Result:
+
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+
+
+============================================================
+IMPORTANT WARNING
+============================================================
+
+These images were obtained from and tested on:
+
+onn 7 Core
+Model 36020962
+Build BP2A.250605.031.A3
+Incremental 20260623
+
+DO NOT assume these images are compatible with another firmware
+version simply because the tablet has the same model number.
+
+Verify your device, firmware build, active slot, and partition
+layout before flashing anything.
+
+Unlocking the bootloader will erase user data.
+
+Flashing incorrect boot images can prevent the device from booting.
+
+Keep the original stock image available before flashing the
+Magisk-patched image.
+
+Use at your own risk.
+
+
+============================================================
+PACKAGE CONTENTS
+============================================================
+
+stock\init_boot_b.img
+
+Original stock init_boot image recovered directly from the device.
+
+Size:
+8,388,608 bytes
+
+SHA-256:
+be629572126caafaf6270198a916cf54bf2cf1a5e1f6e9a369428d151fcde195
+
+
+magisk\magisk_patched_init_boot_b.img
+
+Stock init_boot_b.img patched on the device using Magisk 30.7.
+
+Size:
+8,388,608 bytes
+
+SHA-256:
+9e977153c56a1f045a152b0e4392ea4bf656b56f16e80b770374a569b94e54d7
+
+
+============================================================
+RECOMMENDED ROOT METHOD
+============================================================
+
+The recommended method is to patch the stock init_boot image
+yourself using Magisk rather than blindly flashing a pre-patched
+image.
+
+1. Unlock the bootloader.
+
+WARNING:
+THIS ERASES USER DATA.
+
+2. Install Magisk on the tablet.
+
+3. Copy the stock init_boot image to the tablet.
+
+Example:
+
+adb push init_boot_b.img /sdcard/Download/init_boot_b.img
+
+4. Open Magisk.
+
+Select:
+
+Install
+Select and Patch a File
+
+Select:
+
+init_boot_b.img
+
+5. Allow Magisk to finish patching the image.
+
+The resulting file will normally appear in:
+
+/sdcard/Download/
+
+with a filename similar to:
+
+magisk_patched-XXXXX.img
+
+6. Copy the patched image back to the computer.
+
+Example:
+
+adb pull /sdcard/Download/magisk_patched-XXXXX.img
+
+
+============================================================
+FLASHING
+============================================================
+
+Reboot to the bootloader:
+
+adb reboot bootloader
+
+Confirm Fastboot communication:
+
+fastboot devices
+
+Confirm the bootloader is unlocked:
+
+fastboot getvar unlocked
+
+Confirm the active slot:
+
+fastboot getvar current-slot
+
+
+IMPORTANT:
+
+The device used to develop and test this package was operating
+from SLOT B.
+
+DO NOT blindly assume your device is currently using slot B.
+
+
+For a verified SLOT B device, the tested flash command is:
+
+fastboot flash init_boot_b magisk_patched_init_boot_b.img
+
+After a successful flash:
+
+fastboot reboot
+
+
+============================================================
+FIRST BOOT
+============================================================
+
+Allow Android to boot normally.
+
+Open Magisk.
+
+Magisk may request additional setup and another reboot.
+
+Allow it to complete the installation.
+
+After the reboot, Magisk should report itself as installed.
+
+
+============================================================
+VERIFY ROOT
+============================================================
+
+Connect through ADB:
+
+adb shell
+
+Request root:
+
+su
+
+Magisk should display a Superuser permission request on the tablet.
+
+Grant permission.
+
+Then run:
+
+id
+
+Successful root should return uid=0(root).
+
+The development device returned:
+
+uid=0(root) gid=0(root) groups=0(root) context=u:r:magisk:s0
+
+
+============================================================
+RESTORING STOCK INIT_BOOT
+============================================================
+
+The original stock init_boot image is included specifically so
+the modification can be reversed.
+
+For SLOT B:
+
+fastboot flash init_boot_b init_boot_b.img
+
+Then:
+
+fastboot reboot
+
+
+============================================================
+DEVELOPMENT NOTES
+============================================================
+
+The stock firmware was recovered directly from the tablet because
+a factory image for this exact build was not available during
+development.
+
+The device uses:
+
+A/B slots
+Android dynamic partitions
+super partition
+EROFS system filesystem
+
+The stock super partition was successfully dumped, verified,
+parsed, and extracted.
+
+Additional stock boot-chain partitions have also been preserved.
+
+A complete stock recovery/firmware package may be released after
+the recovery procedure has been sufficiently tested.
+
+This package should therefore be considered a ROOT PACKAGE,
+not a complete custom ROM or factory firmware package.
+
+
+============================================================
+STATUS
+============================================================
+
+Bootloader unlock: VERIFIED
+
+Stock firmware extraction: VERIFIED
+
+Magisk init_boot patch: VERIFIED
+
+Permanent Magisk root: VERIFIED
+
+Root persistence after normal reboot: VERIFIED
+
+
+============================================================
+FINAL NOTE
+============================================================
+
+After about ten years away from Android development, I bought a
+cheap onn tablet and started wondering what would happen if I
+messed with it.
+
+Apparently some habits survive.
+
+Have fun, keep your stock images, and know how you're getting
+back before you flash something.
+
+============================================================

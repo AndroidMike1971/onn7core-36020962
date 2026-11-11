@@ -1,0 +1,43 @@
+onn 7 Core - Permanent Root Record
+=================================
+
+Device: onn 7 Core
+Device codename: onn7core
+Model: 36020962
+Android: 16
+SDK: 36
+Build: BP2A.250605.031.A3
+Incremental: 20260623
+Active slot at root installation: B
+
+Root method:
+Magisk 30.7
+Patched partition: init_boot_b
+Partition mapping: /dev/block/mmcblk0p44
+
+Stock init_boot_b.img
+Size: 8,388,608 bytes
+SHA-256:
+be629572126caafaf6270198a916cf54bf2cf1a5e1f6e9a369428d151fcde195
+
+Magisk patched init_boot_b.img
+Size: 8,388,608 bytes
+SHA-256:
+9e977153c56a1f045a152b0e4392ea4bf656b56f16e80b770374a569b94e54d7
+
+Flash command:
+fastboot flash init_boot_b C:\Android\onn7core\magisk\magisk_patched_init_boot_b.img
+
+Stock rollback command:
+fastboot flash init_boot_b C:\Android\onn7core\stock-2026-06-23\boot-chain\init_boot_b.img
+
+Root verification:
+adb shell
+su
+id
+
+Verified result:
+uid=0(root) gid=0(root) context=u:r:magisk:s0
+
+STATUS:
+PERMANENT STOCK ROOT CONFIRMED
